@@ -11,6 +11,14 @@ window.onload = () => {
         return { x, y, width: 120, height: 80, text };
     }
 
+    // Add default welcome fragment with instructions
+    function addWelcomeFragment() {
+        const welcomeText = "Double-click to add fragments";
+        const x = (canvas.width - 120) / 2; // Center horizontally
+        const y = (canvas.height - 80) / 2; // Center vertically
+        fragments.push(createFragment(x, y, welcomeText));
+    }
+
     function drawFragments() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         fragments.forEach(frag => {
@@ -31,5 +39,7 @@ window.onload = () => {
         }
     });
 
+    // Initialize with welcome fragment
+    addWelcomeFragment();
     drawFragments();
 };
